@@ -38,6 +38,8 @@ allprojects {
     val glassfishJson: String by project
     val errorProneAnnotations: String by project
     val j2objcAnnotations: String by project
+    val hibernate: String by project
+    val jakarta: String by project
 
     apply(plugin = "io.spring.dependency-management")
     dependencyManagement {
@@ -54,6 +56,8 @@ allprojects {
             dependency("org.glassfish:jakarta.json:$glassfishJson")
             dependency("com.google.errorprone:error_prone_annotations:$errorProneAnnotations")
             dependency("com.google.j2objc:j2objc-annotations:$j2objcAnnotations")
+            dependency("org.hibernate.orm:hibernate-core:$hibernate")
+            dependency("jakarta.persistence:jakarta.persistence-api:$jakarta")
         }
     }
 
