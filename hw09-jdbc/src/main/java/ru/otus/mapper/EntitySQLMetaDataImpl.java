@@ -18,7 +18,8 @@ public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
 
     @Override
     public String getSelectByIdSql() {
-        return String.format("SELECT * FROM %s WHERE %s = ?",
+        return String.format(
+                "SELECT * FROM %s WHERE %s = ?",
                 entityClassMetaData.getName().toLowerCase(),
                 entityClassMetaData.getIdField().getName());
     }
@@ -28,7 +29,9 @@ public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
         StringBuilder sql = new StringBuilder();
         StringBuilder values = new StringBuilder();
 
-        sql.append("INSERT INTO ").append(entityClassMetaData.getName().toLowerCase()).append(" (");
+        sql.append("INSERT INTO ")
+                .append(entityClassMetaData.getName().toLowerCase())
+                .append(" (");
 
         List<String> fieldNames = entityClassMetaData.getFieldsWithoutId().stream()
                 .map(Field::getName)
@@ -51,7 +54,9 @@ public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
     public String getUpdateSql() {
         StringBuilder sql = new StringBuilder();
 
-        sql.append("UPDATE ").append(entityClassMetaData.getName().toLowerCase()).append(" SET ");
+        sql.append("UPDATE ")
+                .append(entityClassMetaData.getName().toLowerCase())
+                .append(" SET ");
 
         List<String> fieldNames = entityClassMetaData.getFieldsWithoutId().stream()
                 .map(Field::getName)

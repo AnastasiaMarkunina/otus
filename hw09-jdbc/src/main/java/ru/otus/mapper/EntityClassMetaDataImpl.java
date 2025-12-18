@@ -1,13 +1,12 @@
 package ru.otus.mapper;
 
-import ru.otus.crm.annotation.Id;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import ru.otus.crm.annotation.Id;
 
 public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
     private final Class<T> clazz;
@@ -38,11 +37,11 @@ public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
         this.idField = allFields.stream()
                 .filter(f -> f.isAnnotationPresent(Id.class))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("No field with @Id annotation found in " + clazz.getName()));
+                .orElseThrow(
+                        () -> new IllegalStateException("No field with @Id annotation found in " + clazz.getName()));
 
-        this.fieldsWithoutId = allFields.stream()
-                .filter(f -> !f.equals(idField))
-                .collect(Collectors.toList());
+        this.fieldsWithoutId =
+                allFields.stream().filter(f -> !f.equals(idField)).collect(Collectors.toList());
     }
 
     @Override
