@@ -10,6 +10,7 @@ import ru.otus.dao.EntityDao;
 import ru.otus.dto.ClientDto;
 import ru.otus.helpers.FileSystemHelper;
 import ru.otus.services.TemplateProcessor;
+import ru.otus.servlet.AdminLoginServlet;
 import ru.otus.servlet.ClientServlet;
 import ru.otus.servlet.ClientsApiServlet;
 
@@ -76,6 +77,7 @@ public class ClientsWebServerSimple implements WebServer {
 
     private ServletContextHandler createServletContextHandler() {
         ServletContextHandler servletContextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        servletContextHandler.addServlet(new ServletHolder(new AdminLoginServlet(templateProcessor)), "/login");
         servletContextHandler.addServlet(new ServletHolder(new ClientServlet(clientDao, templateProcessor)), "/client");
         servletContextHandler.addServlet(new ServletHolder(new ClientsApiServlet(clientDao, gson)), "/api/client/*");
         return servletContextHandler;

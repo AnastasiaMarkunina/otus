@@ -34,7 +34,28 @@ public class ClientsWebServerWithBasicSecurity extends ClientsWebServerSimple {
     protected Handler applySecurity(ServletContextHandler servletContextHandler, String... paths) {
         Constraint constraint = Constraint.from(ROLE_NAME_USER, ROLE_NAME_ADMIN);
 
+        Constraint adminConstraint = Constraint.from(ROLE_NAME_ADMIN);
+        Constraint userConstraint = Constraint.from(ROLE_NAME_USER, ROLE_NAME_ADMIN);
+
         List<ConstraintMapping> constraintMappings = new ArrayList<>();
+
+        ConstraintMapping adminMapping = new ConstraintMapping();
+        adminMapping.setPathSpec("/api/admin/*");
+        adminMapping.setConstraint(adminConstraint);
+        constraintMappings.add(adminMapping);
+
+        Arrays.stream(paths).forEachOrdered(path -> {
+            ConstraintMapping mapping = new ConstraintMapping();
+            mapping.setPathSpec(path);
+            mapping.setConstraint(userConstraint);
+            constraintMappings.add(mapping);
+        });
+
+        ConstraintMapping loginMapping = new ConstraintMapping();
+        loginMapping.setPathSpec("/login");
+        loginMapping.setConstraint(Constraint.ANY_USER);
+        constraintMappings.add(loginMapping);
+
         Arrays.stream(paths).forEachOrdered(path -> {
             ConstraintMapping mapping = new ConstraintMapping();
             mapping.setPathSpec(path);

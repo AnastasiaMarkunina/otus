@@ -112,6 +112,26 @@
 </head>
 
 <body>
+<div style="position: absolute; top: 10px; right: 10px; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">
+    <span id="adminStatus">Гость</span>
+    <button onclick="checkAdminStatus()" style="margin-left: 10px;">Войти как администратор</button>
+</div>
+
+<script>
+    function checkAdminStatus() {
+        const username = localStorage.getItem('adminUsername');
+        if (username) {
+            document.getElementById('adminStatus').textContent = 'Админ: ' + username;
+        } else {
+            window.location.href = '/login';
+        }
+    }
+
+    // При загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAdminStatus();
+    });
+</script>
 <h4>Получить пользователя по id</h4>
 <label for="clientIdTextBox"></label>
 <input type="text" id="clientIdTextBox" value="3" placeholder="Введите id клиента">
