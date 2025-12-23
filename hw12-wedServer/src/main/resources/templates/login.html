@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Аутентификация администратора</title>
+</head>
+<body>
+<div class="login-container">
+    <h2>Аутентификация</h2>
+
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" placeholder="Введите логин" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+        </div>
+
+        <button type="submit" class="login-button" id="loginButton">
+            Войти
+        </button>
+
+        <div class="error-message" id="errorMessage">
+            Неверный логин или пароль
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const adminUsername = localStorage.getItem('adminUsername');
+        const infoMessage = document.getElementById('infoMessage');
+
+        document.getElementById('username').value = 'admin';
+        document.getElementById('password').value = 'admin123';
+
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const errorMessage = document.getElementById('errorMessage');
+
+            loginButton.disabled = true;
+            loginButton.textContent = 'Вход...';
+            errorMessage.style.display = 'none';
+
+            try {
+                const credentials = btoa(username + ':' + password);
+
+                const response = await fetch('/client', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Basic ' + credentials
+                    }
+                });
+
+                if (response.ok) {
+                    localStorage.setItem('adminAuthenticated', 'true');
+                    localStorage.setItem('adminUsername', username);
+
+                    window.location.href = '/client';
+                } else {
+                    errorMessage.style.display = 'block';
+                    loginButton.disabled = false;
+                    loginButton.textContent = 'Войти';
+                }
+            } catch (error) {
+                errorMessage.textContent = 'Ошибка соединения с сервером';
+                errorMessage.style.display = 'block';
+                loginButton.disabled = false;
+                loginButton.textContent = 'Войти';
+            }
+        });
+    });
+
+    function logout() {
+        localStorage.removeItem('adminAuthenticated');
+        localStorage.removeItem('adminUsername');
+        window.location.href = '/login';
+    }
+
+    // Экспортируем logout для использования на других страницах
+    window.logout = logout;
+</script>
+</body>
+</html>

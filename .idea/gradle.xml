@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/hw01-gradle" />
+            <option value="$PROJECT_DIR$/hw02-generics" />
+            <option value="$PROJECT_DIR$/hw03-annotation" />
+            <option value="$PROJECT_DIR$/hw04-gc" />
+            <option value="$PROJECT_DIR$/hw05-byteCodes" />
+            <option value="$PROJECT_DIR$/hw06-solid" />
+            <option value="$PROJECT_DIR$/hw07-patterns" />
+            <option value="$PROJECT_DIR$/hw08-io" />
+            <option value="$PROJECT_DIR$/hw09-jdbc" />
+            <option value="$PROJECT_DIR$/hw09-jdbc-demo" />
+            <option value="$PROJECT_DIR$/hw10-jpql" />
+            <option value="$PROJECT_DIR$/hw11-cache" />
+            <option value="$PROJECT_DIR$/hw12-wedServer" />
+            <option value="$PROJECT_DIR$/hw14-springDataJdbc" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
