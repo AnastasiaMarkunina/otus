@@ -1,6 +1,6 @@
 import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
-import org.gradle.plugins.ide.idea.model.IdeaLanguageLevel
 import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+import org.gradle.plugins.ide.idea.model.IdeaLanguageLevel
 
 plugins {
     idea
