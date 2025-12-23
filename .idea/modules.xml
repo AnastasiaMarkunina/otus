@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hw03-annotation.iml" filepath="$PROJECT_DIR$/hw03-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw02-generics/otusHome.hw02-generics.iml" filepath="$PROJECT_DIR$/.idea/modules/hw02-generics/otusHome.hw02-generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw02-generics/otusHome.hw02-generics.main.iml" filepath="$PROJECT_DIR$/.idea/modules/hw02-generics/otusHome.hw02-generics.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw02-generics/otusHome.hw02-generics.test.iml" filepath="$PROJECT_DIR$/.idea/modules/hw02-generics/otusHome.hw02-generics.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw06-solid/otusHome.hw06-solid.test.iml" filepath="$PROJECT_DIR$/.idea/modules/hw06-solid/otusHome.hw06-solid.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw10-jpql/otusHome.hw10-jpql.main.iml" filepath="$PROJECT_DIR$/.idea/modules/hw10-jpql/otusHome.hw10-jpql.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw12-wedServer/otusHome.hw12-wedServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/hw12-wedServer/otusHome.hw12-wedServer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw14-springDataJdbc/otusHome.hw14-springDataJdbc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/hw14-springDataJdbc/otusHome.hw14-springDataJdbc.main.iml" />
+    </modules>
+  </component>
+</project>
