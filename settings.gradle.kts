@@ -13,6 +13,8 @@ include("hw10-jpql")
 include("hw11-cache")
 include("hw12-wedServer")
 include("hw13-di")
+include("hw16-concurrentCollections")
+include("hw17-multiprocess")
 
 pluginManagement {
     val jgitver: String by settings
