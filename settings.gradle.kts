@@ -13,6 +13,7 @@ include("hw10-jpql")
 include("hw11-cache")
 include("hw12-wedServer")
 include("hw13-di")
+include("hw18-webflux")
 
 pluginManagement {
     val jgitver: String by settings
@@ -35,3 +36,7 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
+include("hw18-webflux:client-service")
+findProject(":hw18-webflux:client-service")?.name = "client-service"
+include("hw18-webflux:datastore-service")
+findProject(":hw18-webflux:datastore-service")?.name = "datastore-service"
